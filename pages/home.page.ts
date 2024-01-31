@@ -1,29 +1,31 @@
 import { Page, Locator } from '@playwright/test';
 
+
 class HomePage {
-  page: Page;
-  getStartedBtn: Locator;
-  headingText: Locator;
-  homeLink: Locator;
-  searchIcon: Locator;
-  navLinks: Locator;
+    page: Page;
+    emailTxtBox: Locator;
+    passwordTxtBox: Locator;
+    getLoginBtn: Locator;
 
-  constructor(page: Page) {
-    this.page = page;
-    this.getStartedBtn = page.locator('#get-started')
-    this.headingText = page.locator('text=Think different. Make different.')
-    this.homeLink = page.locator('#primary-menu:has-text("Home")')
-    this.searchIcon = page.locator('//*[@id="primary-menu"]//*[@class="tg-icon tg-icon-search"]')
-    this.navLinks = page.locator('#primary-menu li[id*=menu]')
-  }
 
-  async navigate() {
-    await this.page.goto('/');
-  }
+    constructor(page: Page) {
+        this.page = page;
+        this.emailTxtBox = page.locator('#email')
+        this.passwordTxtBox = page.locator('#password')
+        this.getLoginBtn = page.getByRole('button', { name: 'Login' })
 
-  getNavLinksText() {
-    return this.navLinks.allTextContents()
-  }
+    }
+
+    async navigate() {
+        await this.page.goto('/');
+    }
+    async Login() {
+        await this.emailTxtBox.fill('graceson121@gmail.com')
+        await this.passwordTxtBox.fill('Testuser@123#')
+        await this.getLoginBtn.click()
+
+
+    }
 }
 
 export default HomePage;
