@@ -46,13 +46,13 @@ const config: PlaywrightTestConfig = {
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        headless: false
-      },
-    },
+    // {
+    //   name: 'chromium',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     headless: false
+    //   },
+    // },
 
     // {
     //   name: 'firefox',
@@ -89,12 +89,13 @@ const config: PlaywrightTestConfig = {
     //     channel: 'msedge',
     //   },
     // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
-    // },
+    {
+      name: 'Google Chrome',
+      use: {
+        channel: 'chrome',
+        headless: false
+      },
+    },
   ],
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',

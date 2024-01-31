@@ -16,17 +16,17 @@ test.describe('Home', () => {
     })
     test('Login to the dashboard and clicking employees page', async ({ page }) => {
         dashboard = new Dashboard(page);
-        await dashboard.ClickOnAccountsMenu()
+        await dashboard.clickOnEmployeesMenu()
     })
-    test('Verify user able to add employee details in the page and saving it', async ({ page }) => {
+    test('Verify user able to add two employees and search for the both employees', async ({ page }) => {
         employee = new Employee(page);
         dashboard = new Dashboard(page);
-        await dashboard.ClickOnAccountsMenu()
-        await employee.AddNewEmployee()
+        await dashboard.clickOnEmployeesMenu()
+        await employee.addNewEmployee()
         expect(employee.VerifyEmployeeCreated)
-        await employee.AddAnotherEmployee()
-        await employee.FillEmployeeDetails()
-        await page.waitForTimeout(3000000);
+        await employee.addAnotherEmployee()
+        await employee.fillEmployeeDetails()
+        await employee.searchEmployee()
 
     })
 

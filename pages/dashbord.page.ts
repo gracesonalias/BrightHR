@@ -3,18 +3,18 @@ import { Page, Locator } from '@playwright/test';
 
 class Dashboard {
     page: Page;
-    accountsSideMenu: Locator;
+    employeesSideMenu: Locator;
 
 
     constructor(page: Page) {
         this.page = page;
-        this.accountsSideMenu = page.getByTitle('Employees')
+        this.employeesSideMenu = page.getByTitle('Employees')
 
     }
 
-    async ClickOnAccountsMenu() {
-        await this.accountsSideMenu.isVisible()
-        await this.accountsSideMenu.click()
+    async clickOnEmployeesMenu() {
+        await this.employeesSideMenu.isVisible()
+        await this.employeesSideMenu.click()
     }
 
 }
