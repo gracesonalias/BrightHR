@@ -77,6 +77,7 @@ class Employee {
         await this.jobTitleTxt.fill(faker.name.jobTitle())
         await this.saveNewEmployeeBtn.click()
     }
+    // This function enter the employee details in the secon
     async fillEmployeeDetails() {
         await this.secondEmployeeName()
         // console.log("this.firstName" + this.secondFirstName)
@@ -103,20 +104,21 @@ class Employee {
     async searchEmployee() {
 
         // Search for the first employee
-        //console.log("this.firstName: " + this.firstFirstName);
+        console.log("this.firstName: " + this.firstFirstName);
         await this.searchTxtBx.fill(this.firstFirstName);
         await this.page.waitForSelector('.text-base.font-bold');
         const firstNames = await this.page.$$eval('//h1[@class="text-base font-bold"]', (elements) => {
             return elements.map(element => element.textContent?.trim() || '');
         });
-
         // Check if any of the firstNames contains this.firstFirstName
         const matchFound = firstNames.some(firstName => firstName.includes(this.firstFirstName.trim()));
         assert.ok(matchFound, 'No matching first names found.');
         // Clear the search box
         await this.clearSearchBox();
         // Search for the second employee
+        console.log("this.firstName: " + this.secondFirstName);
         await this.searchTxtBx.fill(this.secondFirstName);
+
         const secondFirstNames = await this.page.$$eval('//h1[@class="text-base font-bold"]', (elements) => {
             return elements.map(element => element.textContent?.trim() || '');
         });
