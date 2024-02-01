@@ -26,8 +26,8 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html', { outputfolder: 'test-results' }]],
-  //reporter: [["line"], ["allure-playwright"]],
+  //reporter: [['html', { outputfolder: 'test-results' }]],
+  reporter: [["line"], ["allure-playwright", { outputfolder: 'test-results' }]],
 
   //globalSetup: require.resolve('./utils/global-setup'),
 
