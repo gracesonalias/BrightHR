@@ -38,7 +38,7 @@ class Employee {
         this.emailTxt = page.locator('#email')
         this.phoneNumberTxt = page.locator('#phoneNumber')
         this.calendarIcon = page.locator('#startDate')
-        this.datePicker = page.getByLabel('Fri Jan 05').getByText('5')
+        this.datePicker = page.getByText('15')
         this.jobTitleTxt = page.locator('#jobTitle')
         this.saveNewEmployeeBtn = page.getByRole('button', { name: 'Save new employee' })
         this.employeeAddedSuccessTxt = page.getByRole('heading', { name: 'Success! New employee added' })

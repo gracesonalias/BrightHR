@@ -24,7 +24,6 @@ class HomePage {
         await this.passwordTxtBox.fill('Testuser@123#')
         await this.getLoginBtn.click()
 
-
     }
 }
 
