@@ -51,17 +51,20 @@ class Employee {
     }
     async firstEmployeeName() {
 
+        // This function will create the first name for the first employee 
+
         this.firstFirstName = await faker.name.firstName()
         //console.log("this.firstName" + this.firstFirstName)
         return this.firstFirstName;
     }
+    // This function will create the first name for the second employee 
     async secondEmployeeName() {
 
         this.secondFirstName = await faker.name.firstName()
         // console.log("this.firstName" + this.secondFirstName)
         return this.secondFirstName;
     }
-
+    // This function enter the new employee details for the first time
     async addNewEmployee() {
 
         await this.addEmployeeBtn.isVisible()
@@ -77,7 +80,7 @@ class Employee {
         await this.jobTitleTxt.fill(faker.name.jobTitle())
         await this.saveNewEmployeeBtn.click()
     }
-    // This function enter the employee details in the secon
+    // This function enter the employee details for the second time
     async fillEmployeeDetails() {
         await this.secondEmployeeName()
         // console.log("this.firstName" + this.secondFirstName)

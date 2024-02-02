@@ -15,10 +15,11 @@ class HomePage {
         this.getLoginBtn = page.getByRole('button', { name: 'Login' })
 
     }
-
+    // This function will navigate the user to the home page
     async navigate() {
         await this.page.goto('/');
     }
+    // This function will login the user to add employee
     async Login() {
         await this.emailTxtBox.fill('graceson121@gmail.com')
         await this.passwordTxtBox.fill('Testuser@123#')
